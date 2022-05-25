@@ -1,0 +1,17 @@
+public class Solution {
+
+	
+	public static int countWaysToMakeChange(int denominations[], int value){
+        // Write your code here
+        int m=denominations.length;
+        int storage[]=new int[value+1];
+        storage[0]=1;
+        for(int i=0;i<m;i++){
+            for(int j=denominations[i];j<=value;j++){
+                storage[j]+=storage[j-denominations[i]];
+            }
+        }
+        return storage[value];
+	}
+	
+}
